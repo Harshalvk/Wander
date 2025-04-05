@@ -1,7 +1,11 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
+import { useRouter } from "expo-router";
+import Button from "./Button";
 
 const Login = () => {
+  const router = useRouter();
+
   return (
     <View>
       <Image
@@ -56,27 +60,9 @@ const Login = () => {
             powered by the intelligence of AI. Your next adventure awaits!
           </Text>
         </View>
-        <TouchableOpacity
-          style={{
-            width: "100%",
-            height: 60,
-            backgroundColor: "#0D6EFD",
-            borderRadius: 20,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Text
-            style={{
-              color: "#fff",
-              fontFamily: "geist-medium",
-              fontSize: 18,
-            }}
-          >
-            Get Started
-          </Text>
-        </TouchableOpacity>
+        <Button onPress={() => router.push("/auth/sign-in")}>
+          Get Started
+        </Button>
       </View>
     </View>
   );
