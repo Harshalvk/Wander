@@ -1,7 +1,8 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
-import Button from "./Button";
+// import Button from "./Button";
+import { Button } from "../components/ui/button";
 
 const Login = () => {
   const router = useRouter();
@@ -20,7 +21,7 @@ const Login = () => {
       <View
         style={{
           width: "auto",
-          height: 350,
+          height: 400,
           padding: 30,
           display: "flex",
           justifyContent: "space-between",
@@ -60,8 +61,11 @@ const Login = () => {
             powered by the intelligence of AI. Your next adventure awaits!
           </Text>
         </View>
-        <Button onPress={() => router.push("/auth/sign-in")}>
-          Get Started
+        <Button
+          className="bg-blue-600 h-{42} rounded-xl"
+          onPress={() => router.push("/auth/sign-in")}
+        >
+          <Text className="text-[#ffff] text-lg">Get Started</Text>
         </Button>
       </View>
     </View>
