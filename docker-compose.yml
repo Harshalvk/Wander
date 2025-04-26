@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  wander-postgres:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    container_name: wander-postgres
+    environment:
+      - POSTGRES_PASSWORD=harshal
+      - PGDATA=/data/postgres-wander
+    volumes:
+      - postgres-wander:/data/postgres-wander
+
+volumes:
+  postgres-wander:
