@@ -61,11 +61,17 @@ export default function RootLayout() {
           headerShown: false,
         }}
       >
-        <Stack.Screen
+        {/* <Stack.Screen
           name="index"
           options={{
             title: "Starter Base",
             headerRight: () => <ThemeToggle />,
+          }}
+        /> */}
+        <Stack.Screen
+          name="(tabs)"
+          options={{
+            headerShown: false,
           }}
         />
       </Stack>
