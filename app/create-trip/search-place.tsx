@@ -1,13 +1,13 @@
 import { View, Text, ScrollView, FlatList } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useNavigation } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { CreateTripContext } from "~/context/CreateTripContext";
 
 const SearchPlace = () => {
   const navigation = useNavigation();
-
+  const router = useRouter();
   const { tripData, setTripData } = useContext(CreateTripContext);
 
   useEffect(() => {
@@ -37,6 +37,8 @@ const SearchPlace = () => {
               url: details?.url,
             },
           });
+
+          router.push("/create-trip/SelectTraveler");
         }}
         query={{
           key: process.env.EXPO_PUBLIC_GOOGLE_MAP_KEY!,
