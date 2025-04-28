@@ -15,6 +15,7 @@ import { useColorScheme } from "~/lib/useColorScheme";
 import { PortalHost } from "@rn-primitives/portal";
 import { ThemeToggle } from "~/components/ThemeToggle";
 import { setAndroidNavigationBar } from "~/lib/android-navigation-bar";
+import { CreateTripContext } from "~/context/CreateTripContext";
 
 const LIGHT_THEME: Theme = {
   ...DefaultTheme,
@@ -34,6 +35,7 @@ export default function RootLayout() {
   const hasMounted = React.useRef(false);
   const { colorScheme, isDarkColorScheme } = useColorScheme();
   const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
+  const [tripData, setTripData] = React.useState<any>([]);
 
   useIsomorphicLayoutEffect(() => {
     if (hasMounted.current) {
@@ -54,29 +56,31 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-      <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        {/* <Stack.Screen
+    <CreateTripContext.Provider value={{ tripData, setTripData }}>
+      <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+        <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          {/* <Stack.Screen
           name="index"
           options={{
             title: "Starter Base",
             headerRight: () => <ThemeToggle />,
-          }}
-        /> */}
-        <Stack.Screen
-          name="(tabs)"
-          options={{
-            headerShown: false,
-          }}
-        />
-      </Stack>
-      <PortalHost />
-    </ThemeProvider>
+            }}
+            /> */}
+          <Stack.Screen
+            name="(tabs)"
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack>
+        <PortalHost />
+      </ThemeProvider>
+    </CreateTripContext.Provider>
   );
 }
 
