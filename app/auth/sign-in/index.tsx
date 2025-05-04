@@ -36,12 +36,13 @@ const SignInPage = () => {
         }
       );
 
-      if (!res.ok) {
-        alert("User not found");
+      if (res.ok) {
+        router.push("/(tabs)/mytrip");
         return;
       }
 
-      router.push("/(tabs)/mytrip");
+      alert("User not found");
+      return;
     } catch (error) {
       console.error("Signup error:", error);
       alert("Something went wrong. Please try again later.");
