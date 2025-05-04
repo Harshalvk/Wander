@@ -17,6 +17,10 @@ export async function POST(req: Request) {
       },
     });
 
+    if (!user) {
+      return Response.json({ err: "User not found" });
+    }
+
     const passwordMatch = bcrypt.compareSync(
       validBody.data.password,
       user?.password!
