@@ -4,7 +4,6 @@ import { useNavigation, useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SelectTravlers, SelectTravlersT } from "~/lib/constants";
 import { Card, CardContent } from "~/components/ui/card";
-import { cn } from "~/lib/utils";
 import OptionCard from "~/components/CreateTrip/OptionCard";
 import { CreateTripContext } from "~/context/CreateTripContext";
 import { Button } from "~/components/ui/button";
@@ -46,14 +45,14 @@ const SelectTraveler = () => {
           data={SelectTravlers}
           renderItem={({ item }) => (
             <TouchableOpacity onPress={() => setSelectedTravelers(item)}>
-              <OptionCard item={item} selectedTraveler={selectedTravelers} />
+              <OptionCard item={item} selectedOption={selectedTravelers} />
             </TouchableOpacity>
           )}
           keyExtractor={(item, index) => index.toString()}
         />
 
         <Button
-          className="rounded-full mt-4"
+          className="rounded-full mt-4 bg-blue-600"
           onPress={() => router.push("/create-trip/SelectDates")}
         >
           <Text className="text-white">Continue</Text>
