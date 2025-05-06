@@ -1,20 +1,20 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { SelectTravlersT } from "~/lib/constants";
+import { SelectBudgeOptionT, SelectTravlersT } from "~/lib/constants";
 import { cn } from "~/lib/utils";
 
 export default function OptionCard({
   item,
-  selectedTraveler,
+  selectedOption,
 }: {
-  item: SelectTravlersT;
-  selectedTraveler: SelectTravlersT;
+  item: SelectTravlersT | SelectBudgeOptionT;
+  selectedOption: SelectTravlersT | SelectBudgeOptionT;
 }) {
   return (
     <View
       className={cn(
         "flex flex-row items-center justify-between p-3 mt-3 bg-gray-100 rounded-xl",
-        selectedTraveler.id === item.id && "border"
+        selectedOption.id === item.id && "border"
       )}
     >
       <View>
