@@ -1,4 +1,3 @@
-import { View, Text, ScrollView, FlatList } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation, useRouter } from "expo-router";
@@ -17,10 +16,6 @@ const SearchPlace = () => {
       headerTitle: "Search",
     });
   }, []);
-
-  useEffect(() => {
-    console.log("TRIPDATA", tripData);
-  }, [tripData]);
 
   return (
     <SafeAreaView style={{ flex: 1, marginTop: 5 }}>
