@@ -62,3 +62,37 @@ export const SelectTravlers: SelectTravlersT[] = [
     people: "5+",
   },
 ];
+
+export type SelectBudgeOptionT = {
+  id: number;
+  title: string;
+  desc: string;
+  icon: string;
+};
+
+export const SelectBudgeOption: SelectBudgeOptionT[] = [
+  {
+    id: 1,
+    title: "Cheap",
+    desc: "Stay conscious of costs",
+    icon: "💵",
+  },
+  {
+    id: 2,
+    title: "Moderate",
+    desc: "Balance comfort and cost",
+    icon: "💳",
+  },
+  {
+    id: 3,
+    title: "Luxury",
+    desc: "Indulge in premium experiences",
+    icon: "💎",
+  },
+  {
+    id: 4,
+    title: "Flexible",
+    desc: "Adapt to any budget",
+    icon: "🎯",
+  },
+];
